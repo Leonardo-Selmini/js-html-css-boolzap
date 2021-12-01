@@ -11,7 +11,7 @@
   <!-- titolo -->
   <title>WhatsApp</title>
   <!-- favicon -->
-  <link rel="icon" type="img/png" href="img/favicon.png">
+  <link rel="icon" href="https://static.xx.fbcdn.net/rsrc.php/v3/yj/r/l6juvT9wi6N.png">
   
   <!-- CDN font awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
@@ -28,9 +28,9 @@
 <!-- 00000000 BODY 00000000 -->
 <body>
   <div id="root">
-    <!-- start main -->
+    <!-- 000000000 MAIN 00000000 -->
     <main>
-      <!-- main left -->
+      <!-- START MAIN LEFT -->
       <div id="main-left">
         <!-- main header -->
         <div class="main-header">
@@ -53,9 +53,9 @@
             <i class="fas fa-bell-slash centered"></i>
           </div>
           <!-- text container -->
-          <div class="text-container">
+          <div class="column">
             <span>Ricevi notifiche di nuovi messaggi</span>
-            <span class="link">Attiva notifiche desktop</span>
+            <span class="little-gray">Attiva notifiche desktop</span>
           </div>
         </div>
         <!-- search container -->
@@ -117,16 +117,57 @@
           </div>
         </div>
       </div>
-      <!-- start main right -->
+      <!-- START MAIN RIGHT -->
       <div id="main-right">
-
+        <!-- main header-->
+        <div class="main-header">
+          <!-- avatar + name -->
+          <div id="avatar-container" class="centered">
+            <img src="img/avatar_io.jpg" alt="my avatar">
+            <div class="column">
+              <span>Leonarda Selmini</span>
+              <span class="little-gray">Ultimo accesso oggi alle 13:06</span>
+            </div>
+          </div>
+          <!-- icons container -->
+          <div>
+            <i class="fas fa-search"></i>
+            <i class="fas fa-paperclip"></i>
+            <i class="fas fa-ellipsis-v"></i>
+          </div>
+        </div>
+        <!-- messages container -->
+        <div id="messages-container">
+          <div class="row clearfix">
+            <div class="message sent">
+              <span>Oi</span>
+              <span class="time little-gray">13:06</span>
+            </div>
+          </div>
+          <div class="row clearfix">
+            <div class="message sent">
+              <span>come stai?</span>
+              <span class="time little-gray">13:06</span>
+            </div>
+          </div>
+          <div class="row clearfix">
+            <div class="message received">
+              <span>Bene grazie, tu?</span>
+            </div>
+          </div>
+        </div>
+        <!-- write message -->
+        <div id="write-container" class="centered">
+          <div class="icon-container centered">
+            <i class="far fa-laugh"></i>
+          </div>
+          <input type="text" placeholder="Scrivi un messaggio">
+          <div class="icon-container centered">
+            <i class="fas fa-microphone"></i>
+          </div>
+        </div>
       </div>
     </main>
-
-
-
-
-
   </div>
 
   <!-- 00000000 SCRIPT 00000000 -->
