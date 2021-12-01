@@ -2,12 +2,13 @@ const app = new Vue({
   el: '#root',
   data: {
     currentIndex: 0,
-    newMessage: '',
+    search: '',
     contacts: [
       {
         name: 'Michele',
         avatar: '_1',
         visible: true,
+        newMessage: '',
         messages: [
           {
             date: '15:30',
@@ -30,6 +31,7 @@ const app = new Vue({
         name: 'Fabio',
         avatar: '_2',
         visible: true,
+        newMessage: '',
         messages: [{
           date: '16:30',
           message: 'Ciao come stai?',
@@ -51,6 +53,7 @@ const app = new Vue({
         name: 'Samuele',
         avatar: '_3',
         visible: true,
+        newMessage: '',
         messages: [{
           date: '10:10',
           message: 'La Marianna va in campagna',
@@ -72,6 +75,7 @@ const app = new Vue({
         name: 'Marco',
         avatar: '_4',
         visible: true,
+        newMessage: '',
         messages: [{
           date: '15:30',
           message: 'Lo sai che ha aperto una nuova pizzeria?',
@@ -87,23 +91,46 @@ const app = new Vue({
     ]
   },
   methods: {
-    sendMessage: function() {
+    sendMessage: function () {
       const message = {
         date: '23:18',
-        message: this.newMessage,
+        message: this.contacts[this.currentIndex].newMessage,
         status: 'sent'
       };
       this.contacts[this.currentIndex].messages.push(message);
-      this.newMessage = '';
+      this.contacts[this.currentIndex].newMessage = '';
       const ok = {
         date: '23:18',
         message: 'ok',
         status: 'received'
       };
       const that = this;
-      setTimeout(function() {
+      setTimeout(function () {
         that.contacts[that.currentIndex].messages.push(ok);
       }, 1000);
-    }
+    },
+    searchChat: function(message) {
+      this.contacts.forEach(element => {
+        if (!element.name.toLowerCase().includes(message.toLowerCase())) {
+          element.visible = false;
+        }
+      });
+      if (message.length == 0) {
+        this.contacts.forEach(element => {
+          element.visible = true;
+        });
+      }
+    },
   }
 })
+
+// formatMessage: function(message) {
+//   if (message.length % 30 == 0) {
+//     message += '<br>'; 
+//   }
+// }
+
+// DOMANDE:
+// - sintassi nei :/v- per effettuare più comandi;
+// - mandare a capo una parola se è più lunga di x lettere;
+

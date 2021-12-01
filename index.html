@@ -63,11 +63,11 @@
           <label for="search" class="centered">
             <i class="fas fa-search"></i>
           </label>
-          <input id="search" type="text" placeholder="Cerca una chat">
+          <input id="search" type="text" placeholder="Cerca una chat" v-model="search" @keyup="searchChat(search)">
         </div>
         <!-- chat container -->
         <div id="chat-container">
-          <div v-for="(contact, i) in contacts" class="chat-box" @click="currentIndex = i" :class="(i == currentIndex)? 'selected' : '' ">
+          <div v-for="(contact, i) in contacts" class="chat-box" @click="currentIndex = i" :class="[(i == currentIndex)? 'selected' : '', (contact.visible)? '' : 'hidden']">
             <img :src="'img/avatar' + contact.avatar + '.jpg' " :alt="contact.name + '\'s avatar'">
             <span>{{contact.name}}</span>
           </div>
@@ -106,7 +106,7 @@
           <div class="icon-container centered">
             <i class="far fa-laugh"></i>
           </div>
-          <input type="text" placeholder="Scrivi un messaggio" v-model="newMessage" @keypress.enter="sendMessage">
+          <input type="text" placeholder="Scrivi un messaggio" v-model="contacts[currentIndex].newMessage" @keypress.enter="sendMessage">
           <div class="icon-container centered">
             <i class="fas fa-microphone"></i>
           </div>

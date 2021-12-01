@@ -55,6 +55,10 @@ input:focus {
   background-color: #E9EBEB !important;
 }
 
+.hidden {
+  display: none !important;
+}
+
 /* 00000000 MAIN 00000000 */
 main {
   width: 80%;
