@@ -106,7 +106,7 @@
           <div class="icon-container centered">
             <i class="far fa-laugh"></i>
           </div>
-          <input type="text" placeholder="Scrivi un messaggio">
+          <input type="text" placeholder="Scrivi un messaggio" v-model="newMessage" @keypress.enter="sendMessage">
           <div class="icon-container centered">
             <i class="fas fa-microphone"></i>
           </div>

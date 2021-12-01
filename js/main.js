@@ -2,6 +2,7 @@ const app = new Vue({
   el: '#root',
   data: {
     currentIndex: 0,
+    newMessage: '',
     contacts: [
       {
         name: 'Michele',
@@ -86,6 +87,23 @@ const app = new Vue({
     ]
   },
   methods: {
-
+    sendMessage: function() {
+      const message = {
+        date: '23:18',
+        message: this.newMessage,
+        status: 'sent'
+      };
+      this.contacts[this.currentIndex].messages.push(message);
+      this.newMessage = '';
+      const ok = {
+        date: '23:18',
+        message: 'ok',
+        status: 'received'
+      };
+      const that = this;
+      setTimeout(function() {
+        that.contacts[that.currentIndex].messages.push(ok);
+      }, 1000);
+    }
   }
 })
