@@ -19,7 +19,7 @@
   <!-- google font -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;700;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
 
   <!-- my CSS -->
   <link rel="stylesheet" href="style.css">
@@ -36,8 +36,8 @@
         <div class="main-header">
           <!-- avatar + name -->
           <div id="avatar-container" class="centered">
-            <img src="img/avatar_io.jpg" alt="my avatar">
-            <span>Leonarda Selmini</span>
+            <img src="img/avatar_7.jpg" alt="my avatar">
+            <span>Leonardo Selmini</span>
           </div>
           <!-- icons container -->
           <div>
@@ -67,53 +67,9 @@
         </div>
         <!-- chat container -->
         <div id="chat-container">
-          <div class="chat-box">
-            <img src="img/avatar_1.jpg" alt="Michele's avatar">
-            <span>Michele</span>
-          </div>
-          <div class="chat-box">
-            <img src="img/avatar_1.jpg" alt="Michele's avatar">
-            <span>Michele</span>
-          </div>
-          <div class="chat-box">
-            <img src="img/avatar_1.jpg" alt="Michele's avatar">
-            <span>Michele</span>
-          </div>
-          <div class="chat-box">
-            <img src="img/avatar_1.jpg" alt="Michele's avatar">
-            <span>Michele</span>
-          </div>
-          <div class="chat-box">
-            <img src="img/avatar_1.jpg" alt="Michele's avatar">
-            <span>Michele</span>
-          </div>
-          <div class="chat-box">
-            <img src="img/avatar_1.jpg" alt="Michele's avatar">
-            <span>Michele</span>
-          </div>
-          <div class="chat-box">
-            <img src="img/avatar_1.jpg" alt="Michele's avatar">
-            <span>Michele</span>
-          </div>
-          <div class="chat-box">
-            <img src="img/avatar_1.jpg" alt="Michele's avatar">
-            <span>Michele</span>
-          </div>
-          <div class="chat-box">
-            <img src="img/avatar_1.jpg" alt="Michele's avatar">
-            <span>Michele</span>
-          </div>
-          <div class="chat-box">
-            <img src="img/avatar_1.jpg" alt="Michele's avatar">
-            <span>Michele</span>
-          </div>
-          <div class="chat-box">
-            <img src="img/avatar_1.jpg" alt="Michele's avatar">
-            <span>Michele</span>
-          </div>
-          <div class="chat-box">
-            <img src="img/avatar_1.jpg" alt="Michele's avatar">
-            <span>Michele</span>
+          <div v-for="(contact, i) in contacts" class="chat-box" @click="currentIndex = i" :class="(i == currentIndex)? 'selected' : '' ">
+            <img :src="'img/avatar' + contact.avatar + '.jpg' " :alt="contact.name + '\'s avatar'">
+            <span>{{contact.name}}</span>
           </div>
         </div>
       </div>
@@ -123,9 +79,9 @@
         <div class="main-header">
           <!-- avatar + name -->
           <div id="avatar-container" class="centered">
-            <img src="img/avatar_io.jpg" alt="my avatar">
+            <img :src=" 'img/avatar' + contacts[currentIndex].avatar + '.jpg' " alt="my avatar">
             <div class="column">
-              <span>Leonarda Selmini</span>
+              <span>{{contacts[currentIndex].name}}</span>
               <span class="little-gray">Ultimo accesso oggi alle 13:06</span>
             </div>
           </div>
@@ -138,21 +94,10 @@
         </div>
         <!-- messages container -->
         <div id="messages-container">
-          <div class="row clearfix">
-            <div class="message sent">
-              <span>Oi</span>
-              <span class="time little-gray">13:06</span>
-            </div>
-          </div>
-          <div class="row clearfix">
-            <div class="message sent">
-              <span>come stai?</span>
-              <span class="time little-gray">13:06</span>
-            </div>
-          </div>
-          <div class="row clearfix">
-            <div class="message received">
-              <span>Bene grazie, tu?</span>
+          <div v-for="message in contacts[currentIndex].messages" class="row clearfix">
+            <div class="message" :class="message.status">
+              <span>{{message.message}}</span>
+              <span class="time little-gray">{{message.date}}</span>
             </div>
           </div>
         </div>
