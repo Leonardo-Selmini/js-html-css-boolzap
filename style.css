@@ -112,6 +112,7 @@ main {
 
 /* notification section */
 #notifications {
+  position: relative;
   height: 5rem;
   display: flex;
   background-color: #ADE6FF;
@@ -129,6 +130,23 @@ main {
   background-color: #F2FBFF;
   color: #ADE6FF;
   border-radius: 50%;
+}
+
+#notifications i.fa-times {
+  position: absolute;
+  top: .5rem;
+  right: .5rem;
+  font-size: 1.2rem;
+  color: #B1B1B1;
+  display: none;
+}
+
+#notifications:hover i.fa-times {
+  display: block;
+}
+
+#notifications i.fa-times:hover {
+  color: #6B7376;
 }
 
 /* search section */
@@ -158,8 +176,12 @@ main {
   background-color: #FFF;
 } 
 
+.height-fix {
+  height: calc(100% - 7rem) !important;
+}
+
 .chat-box {
-  height: calc(100% / 6);
+  height: calc(100% / 8);
   display: flex;
   align-items: center;
   border-bottom: 1px solid #EAEAEA;
@@ -198,7 +220,9 @@ main {
   max-width: 45%;
   margin: .4rem;
   padding: 1rem;
+  padding-right: 2rem;
   border-radius: .6rem;
+  overflow-wrap: break-word;
 }
 
 .sent {
@@ -217,6 +241,23 @@ main {
   bottom: .2rem;
   font-size: .7rem;
   font-style: italic;
+}
+
+.bin {
+  position: absolute;
+  top: .5rem;
+  right: .5rem;
+  font-size: .8rem;
+  display: none;
+  color: #6B7376;
+}
+
+.message:hover .bin {
+  display: block;
+}
+
+.bin:hover {
+  color: #FF4539;
 }
 
 /* write message section */

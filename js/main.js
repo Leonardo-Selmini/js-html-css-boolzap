@@ -3,6 +3,7 @@ const app = new Vue({
   data: {
     currentIndex: 0,
     search: '',
+    closed: false,
     contacts: [
       {
         name: 'Michele',
@@ -109,6 +110,7 @@ const app = new Vue({
         that.contacts[that.currentIndex].messages.push(ok);
       }, 1000);
     },
+
     searchChat: function(message) {
       this.contacts.forEach(element => {
         if (!element.name.toLowerCase().includes(message.toLowerCase())) {
@@ -121,8 +123,18 @@ const app = new Vue({
         });
       }
     },
+    closeIt: function() {
+      this.closed = true;
+    },
+  // end methods    
   }
+// end vue instance
 })
+
+
+
+
+
 
 // formatMessage: function(message) {
 //   if (message.length % 30 == 0) {
@@ -130,7 +142,5 @@ const app = new Vue({
 //   }
 // }
 
-// DOMANDE:
-// - sintassi nei :/v- per effettuare più comandi;
 // - mandare a capo una parola se è più lunga di x lettere;
 
