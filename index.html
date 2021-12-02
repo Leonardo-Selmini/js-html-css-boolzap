@@ -69,7 +69,10 @@
         <div id="chat-container" :class="(this.closed)? 'height-fix' : '' ">
           <div v-for="(contact, i) in contacts" class="chat-box" @click="currentIndex = i" :class="[(i == currentIndex)? 'selected' : '', (contact.visible)? '' : 'hidden']">
             <img :src="'img/avatar' + contact.avatar + '.jpg' " :alt="contact.name + '\'s avatar'">
-            <span>{{contact.name}}</span>
+            <div class="column">
+              <span>{{contact.name}}</span>
+              <span class="little-gray">{{contact.messages[(contact.messages.length) - 1].message}}</span>
+            </div>
           </div>
         </div>
       </div>
@@ -94,9 +97,9 @@
         </div>
         <!-- messages container -->
         <div id="messages-container">
-          <div v-for="(message, index) in contacts[currentIndex].messages" class="row clearfix">
+          <div v-for="(message, i) in contacts[currentIndex].messages" class="row clearfix">
             <div class="message" :class="message.status">
-              <i class="fas fa-trash bin" @click="deleteMessage(index)"></i>
+              <i class="fas fa-trash bin" @click="deleteMessage(i)"></i>
               <span>{{message.message}}</span>
               <span class="time little-gray">{{message.date}}</span>
             </div>

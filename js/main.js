@@ -92,7 +92,6 @@ const app = new Vue({
     ]
   },
   methods: {
-
     sendMessage: function () {
       const message = {
         date: '23:18',
@@ -137,17 +136,4 @@ const app = new Vue({
   }
 // end vue instance
 })
-
-
-
-
-
-
-// formatMessage: function(message) {
-//   if (message.length % 30 == 0) {
-//     message += '<br>'; 
-//   }
-// }
-
-// - mandare a capo una parola se è più lunga di x lettere;
 
