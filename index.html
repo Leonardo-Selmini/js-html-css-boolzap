@@ -94,9 +94,9 @@
         </div>
         <!-- messages container -->
         <div id="messages-container">
-          <div v-for="message in contacts[currentIndex].messages" class="row clearfix">
+          <div v-for="(message, index) in contacts[currentIndex].messages" class="row clearfix">
             <div class="message" :class="message.status">
-              <i class="fas fa-trash bin"></i>
+              <i class="fas fa-trash bin" @click="deleteMessage(index)"></i>
               <span>{{message.message}}</span>
               <span class="time little-gray">{{message.date}}</span>
             </div>

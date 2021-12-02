@@ -92,6 +92,7 @@ const app = new Vue({
     ]
   },
   methods: {
+
     sendMessage: function () {
       const message = {
         date: '23:18',
@@ -123,9 +124,15 @@ const app = new Vue({
         });
       }
     },
+
     closeIt: function() {
       this.closed = true;
     },
+
+    deleteMessage: function(index) {
+      this.contacts[this.currentIndex].messages.splice(index, 1);
+    },
+
   // end methods    
   }
 // end vue instance

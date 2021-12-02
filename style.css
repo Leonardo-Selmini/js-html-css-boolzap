@@ -246,7 +246,7 @@ main {
 .bin {
   position: absolute;
   top: .5rem;
-  right: .5rem;
+  right: .4rem;
   font-size: .8rem;
   display: none;
   color: #6B7376;
