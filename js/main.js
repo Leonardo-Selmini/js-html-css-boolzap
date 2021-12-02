@@ -94,14 +94,14 @@ const app = new Vue({
   methods: {
     sendMessage: function () {
       const message = {
-        date: '23:18',
+        date: dayjs().format('HH:mm'),
         message: this.contacts[this.currentIndex].newMessage,
         status: 'sent'
       };
       this.contacts[this.currentIndex].messages.push(message);
       this.contacts[this.currentIndex].newMessage = '';
       const ok = {
-        date: '23:18',
+        date: dayjs().format('HH:mm'),
         message: 'ok',
         status: 'received'
       };
