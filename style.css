@@ -4,7 +4,6 @@
   padding: 0;
   box-sizing: border-box;
   font-family: 'Lato', sans-serif;
-  color: #1D1D1F;
 }
 
 #root {
@@ -114,14 +113,15 @@ main {
 /* notification section */
 #notifications {
   position: relative;
-  height: 5rem;
+  height: 4rem;
   display: flex;
   background-color: #ADE6FF;
 }
 
 #bell {
   height: 100%;
-  padding: 1rem;
+  margin: 0 .5rem;
+  padding: .5rem;
 }
 
 #bell i {
@@ -155,7 +155,7 @@ main {
 }
 
 /* search section */
-#search-container {
+.search-container {
   height: 3rem;
   display: flex;
   align-items: center;
@@ -163,30 +163,28 @@ main {
   padding: .4rem;
 }
 
-#search-container label {
+.search-container label {
   width: 4rem;
-  height: 100%;
-  background-color: white;
 }
 
-#search-container i {
+.search-container i {
   color: #B1B1B1;
 }
 
 /* chat container section */
 #chat-container {
   width: 100%;
-  height: calc(100% - 12rem);
+  height: calc((100% - 16.4rem) / 2);
   overflow-y: scroll;
   background-color: #FFF;
 } 
 
 .height-fix {
-  height: calc(100% - 7rem) !important;
+  height: calc((100% - 8.4rem) / 2) !important;
 }
 
 .chat-box {
-  height: calc(100% / 8);
+  height: calc(100% / 3);
   display: flex;
   align-items: center;
   border-bottom: 1px solid #EAEAEA;
@@ -200,10 +198,27 @@ main {
   background-color: #FAFAFA;
 }
 
-#chat-container img {
+#chat-container img,
+#new-chats img {
   height: 70%;
   margin: 0 1rem;
   border-radius: 50%;
+}
+
+/* new-chat banner */
+#newChat-banner {
+  height: 2.4rem;
+  font-size: .9rem;
+  background-color: #25D366;
+  color: white;
+}
+
+/* new-chats section */
+#new-chats {
+  width: 100%;
+  height: calc((100% - 16.4rem) / 2);
+  overflow-y: scroll;
+  background-color: #FFF;
 }
 
 /* main right */

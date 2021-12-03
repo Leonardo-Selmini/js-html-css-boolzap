@@ -3,6 +3,7 @@ const app = new Vue({
   data: {
     currentIndex: 0,
     search: '',
+    searchNew: '',
     closed: false,
     contacts: [
       {
@@ -89,6 +90,73 @@ const app = new Vue({
         }
         ],
       },
+    ],
+    newContacts: [
+      {
+        name: 'Giacomo',
+        avatar: '_5',
+        visible: true,
+        newMessage: '',
+        messages: [
+          {
+            date: dayjs().format('HH:mm'),
+            message: 'Ciao! Sto usando WhatsApp',
+            status: 'received'
+          }
+        ],
+      },
+      {
+        name: 'Alessia',
+        avatar: '_6',
+        visible: true,
+        newMessage: '',
+        messages: [
+          {
+            date: dayjs().format('HH:mm'),
+            message: 'Ciao! Sto usando WhatsApp',
+            status: 'received'
+          }
+        ],
+      },
+      {
+        name: 'Guglielmo',
+        avatar: '_7',
+        visible: true,
+        newMessage: '',
+        messages: [
+          {
+            date: dayjs().format('HH:mm'),
+            message: 'Ciao! Sto usando WhatsApp',
+            status: 'received'
+          }
+        ],
+      },
+      {
+        name: 'Giovanni',
+        avatar: '_8',
+        visible: true,
+        newMessage: '',
+        messages: [
+          {
+            date: dayjs().format('HH:mm'),
+            message: 'Ciao! Sto usando WhatsApp',
+            status: 'received'
+          }
+        ],
+      },
+      {
+        name: 'Elisa',
+        avatar: '_9',
+        visible: true,
+        newMessage: '',
+        messages: [
+          {
+            date: dayjs().format('HH:mm'),
+            message: 'Ciao! Sto usando WhatsApp',
+            status: 'received'
+          },
+        ],
+      }
     ]
   },
   methods: {
@@ -115,10 +183,27 @@ const app = new Vue({
       this.contacts.forEach(element => {
         if (!element.name.toLowerCase().includes(message.toLowerCase())) {
           element.visible = false;
+        } else {
+          element.visible = true;
         }
       });
       if (message.length == 0) {
         this.contacts.forEach(element => {
+          element.visible = true;
+        });
+      }
+    },
+
+    searchNewChat: function(message) {
+      this.newContacts.forEach(element => {
+        if (!element.name.toLowerCase().includes(message.toLowerCase())) {
+          element.visible = false;
+        } else {
+          element.visible = true;
+        }
+      });
+      if (message.length == 0) {
+        this.newContacts.forEach(element => {
           element.visible = true;
         });
       }
@@ -131,6 +216,11 @@ const app = new Vue({
     deleteMessage: function(index) {
       this.contacts[this.currentIndex].messages.splice(index, 1);
     },
+
+    startChat: function(index) {
+      this.contacts.push(this.newContacts[index]);
+      this.newContacts.splice(index, 1);
+    }
 
   // end methods    
   }

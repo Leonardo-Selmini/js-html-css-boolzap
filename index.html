@@ -59,7 +59,7 @@
           <i class="fas fa-times" @click="closeIt"></i>
         </div>
         <!-- search container -->
-        <div id="search-container">
+        <div class="search-container">
           <label for="search" class="centered">
             <i class="fas fa-search"></i>
           </label>
@@ -71,7 +71,30 @@
             <img :src="'img/avatar' + contact.avatar + '.jpg' " :alt="contact.name + '\'s avatar'">
             <div class="column">
               <span>{{contact.name}}</span>
-              <span class="little-gray">{{contact.messages[(contact.messages.length) - 1].message}}</span>
+              <span v-if="contact.messages.length > 0" class="little-gray">{{contact.messages[(contact.messages.length) - 1].message}}</span>
+              <span v-else class="little-gray">
+                <em>La chat non contiene messaggi</em> 
+              </span>
+            </div>
+          </div>
+        </div>
+        <!-- new chat title -->
+        <div id="newChat-banner" class="centered">
+          Scegli un contatto dalla rubrica per avviare una nuova chat
+        </div>
+        <!-- newSearch container-->
+        <div class="search-container">
+          <label for="search2" class="centered">
+            <i class="fas fa-search"></i>
+          </label>
+          <input id="search2" type="text" placeholder="Cerca un contatto" v-model="searchNew" @keyup="searchNewChat(searchNew)">
+        </div>
+        <!-- newContacts container -->
+        <div id="new-chats">
+          <div v-for="(contact, i) in newContacts" class="chat-box" @click="startChat(i)" :class="(contact.visible)? '' : 'hidden' ">
+            <img :src="'img/avatar' + contact.avatar + '.jpg' " :alt="contact.name + '\'s avatar'">
+            <div class="column">
+              <span>{{contact.name}}</span>
             </div>
           </div>
         </div>
